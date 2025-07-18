@@ -5,6 +5,8 @@
 #Detect collision with wall OK
 #Detect collision with tail
 from turtle import Screen
+
+import scoreboard
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
@@ -47,14 +49,14 @@ while game_on:
 
     #Detect collision with wall
     if snake.head.xcor() > 280 or snake.head.xcor()< -280 or snake.head.ycor()> 280 or snake.head.ycor() < -280 :
-        game_on = False
-        score.game_over()
+        score.reset_score()
+        snake.reset()
+
 
     #Detect collision with tail
     for segment in snake.snake[1:]:
         if snake.head.distance(segment) < 10:
-            game_on = False
-            score.game_over()
+            score.reset_score()
 
 #Ends the program
 screen.exitonclick()

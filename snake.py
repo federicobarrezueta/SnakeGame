@@ -50,12 +50,19 @@ class Snake:
 
     def down(self):
         if self.head.heading() != UP:
-         self.head.setheading(DOWN)
+            self.head.setheading(DOWN)
 
     def right(self):
         if self.head.heading() != LEFT:
-         self.head.setheading(RIGHT)
+            self.head.setheading(RIGHT)
 
     def left(self):
         if self.head.heading() != RIGHT:
-         self.head.setheading(LEFT)
+            self.head.setheading(LEFT)
+
+    def reset(self):
+        for segment in self.snake:
+            segment.goto(1000,1000) #Sends them offscreen
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
