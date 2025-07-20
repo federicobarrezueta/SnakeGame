@@ -22,11 +22,17 @@ screen.tracer(0)
 #Play while game_on conditions are true
 game_on = True
 
+#Create the scoreboard
+score = Scoreboard("data.txt")
 
 #Create the initial snake
 snake = Snake(3,20,20)
+
+#Create the food
 food = Food()
-score = Scoreboard()
+
+
+score.read_scores()
 
 screen.listen()
 screen.onkey(snake.up ,"Up")
